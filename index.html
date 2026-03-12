@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHM AWESOME | Professional Outdoor Gear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 平滑滚动 */
+        html { scroll-behavior: smooth; }
+
+        .hero-bg { 
+            background-image: url('images/hero-bg.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+        .amazon-btn { 
+            background-color: #FF9900; 
+            color: #131921; 
+            transition: all 0.3s; 
+        }
+        .amazon-btn:hover { 
+            background-color: #e68a00; 
+            transform: translateY(-2px); 
+        }
+        /* 弹窗动画 */
+        .modal-overlay.hidden { display: none; }
+        .modal-overlay { display: flex; animation: fadeIn 0.2s ease-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-gray-100 font-sans">
+
+    <nav class="flex justify-between items-center p-6 bg-black border-b border-zinc-800 sticky top-0 z-40">
+        <div class="text-2xl font-bold tracking-tight">XHM&nbsp;&nbsp;AWESOME</div>
+        <div class="space-x-8 hidden md:flex text-sm uppercase tracking-widest">
+            <a href="#" class="hover:text-yellow-500 transition">Home</a>
+            <a href="#products" class="hover:text-yellow-500 transition">Knives</a>
+            <button onclick="openContactModal()" class="hover:text-yellow-500 transition uppercase tracking-widest text-sm font-medium">Contact</button>
+        </div>
+    </nav>
+
+    <header class="hero-bg h-[60vh] flex items-center justify-center text-center">
+    </header>
+
+    <section id="products" class="max-w-7xl mx-auto py-16 px-6">
+        <h2 class="text-3xl font-bold mb-12 border-l-4 border-yellow-500 pl-4 uppercase tracking-wider">Featured Products</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-1')">
+                    <img src="images/knife-1.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Portable Survival Knife</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">High hardness 7Cr13Mov steel, G10 handle, built for extreme environments.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$33.99</span>
+                        <a href="https://www.amazon.com/dp/B0D78T4TFL?th=1" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-2')">
+                    <img src="images/knife-2.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Tactical Knife - Mini Chopper</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Compact, lightweight and razor sharp. The ultimate EDC choice.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$24.99</span>
+                        <a href="https://www.amazon.com/dp/B0FG2G9NFX" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-3')">
+                    <img src="images/knife-3.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Small Fixed Blade</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Premium survival gear, handy and great balance, an elegant EDC.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$32.99</span>
+                        <a href="https://www.amazon.com/dp/B0BN1423GV" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-4')">
+                    <img src="images/knife-4.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Deep Woods Hunter</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">A versatile hunting knife with precision edge retention.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$37.99</span>
+                        <a href="https://www.amazon.com/dp/B09N6Y7MLY?th=1" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-5')">
+                    <img src="images/knife-5.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Combat Survival Pro</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Full tang design for heavy duty military and survival tasks.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$35.00</span>
+                        <a href="https://www.amazon.com/dp/B0B85YHPSH" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-zinc-800 rounded-lg overflow-hidden group border border-zinc-700">
+                <div class="aspect-square bg-zinc-700 overflow-hidden cursor-pointer relative" onclick="openModal('knife-6')">
+                    <img src="images/knife-6.jpg" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <span class="text-white border border-white px-4 py-2 uppercase text-xs tracking-widest">View Details</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Field Scalpel</h3>
+                    <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Quick deployment rescue tool for everyday carry safety.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-yellow-500">$19.99</span>
+                        <a href="https://www.amazon.com/dp/B0D93QKM4H" target="_blank" class="amazon-btn px-4 py-2 rounded font-bold text-sm">BUY ON AMAZON</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="productModal" class="modal-overlay fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-700 max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-3xl hover:text-yellow-500 transition z-10">&times;</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 text-left">
+                <div class="flex items-center"><img id="modalImage" src="" class="w-full rounded-lg border border-zinc-800 shadow-2xl"></div>
+                <div class="flex flex-col justify-center">
+                    <h2 id="modalTitle" class="text-3xl font-bold mb-4 text-white uppercase tracking-tight"></h2>
+                    <div id="modalSpecs" class="space-y-4 text-zinc-300 border-b border-zinc-800 pb-8 mb-8">
+                        <p id="s1_row" class="flex items-center"><span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span> <span id="spec1"></span></p>
+                        <p id="s2_row" class="flex items-center"><span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span> <span id="spec2"></span></p>
+                        <p id="s3_row" class="flex items-center"><span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span> <span id="spec3"></span></p>
+                        <p id="s4_row" class="flex items-center"><span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span> <span id="spec4"></span></p>
+                        <p id="s5_row" class="flex items-center"><span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span> <span id="spec5"></span></p>
+                    </div>
+                    <a id="modalAmazonLink" href="#" target="_blank" class="amazon-btn w-full block text-center py-4 rounded-lg font-bold text-lg uppercase tracking-widest">GET IT ON AMAZON</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal-overlay fixed inset-0 bg-black/95 z-50 hidden items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-700 max-w-md w-full rounded-2xl relative p-10 text-center shadow-2xl">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white text-3xl transition">&times;</button>
+            <div class="w-20 h-20 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-white uppercase tracking-widest mb-2">Contact Us</h2>
+            <p class="text-zinc-400 mb-8 text-sm">For wholesale or customer support</p>
+            <div class="bg-black/40 p-5 rounded-xl border border-zinc-800 mb-8 hover:border-yellow-500/50 transition">
+                <a href="mailto:info@xhmawesome.com" class="text-yellow-500 font-mono text-xl font-bold hover:underline">info@xhmawesome.com</a>
+            </div>
+            <button onclick="closeContactModal()" class="text-zinc-600 hover:text-zinc-400 text-xs uppercase tracking-[0.2em] transition">Close Window</button>
+        </div>
+    </div>
+
+    <footer class="bg-black py-12 border-t border-zinc-800 text-center text-zinc-500 text-sm">
+        <p>© <span id="year"></span> XHM AWESOME. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- 产品数据中心 ---
+        const productData = {
+            'knife-1': {
+                title: "Portable Survival Knife",
+                image: "images/knife-1.jpg",
+                link: "https://www.amazon.com/dp/B0D78T4TFL?th=1",
+                specs: ["Steel: 7Cr13Mov Steel", "Handle: Ergonomic G10", "Overall Length: 6.9 Inches", "Blade Thickness: 0.2 Inches", "Sheath: Kydex Case"]
+            },
+            'knife-2': {
+                title: "Tactical Knife - Mini Chopper",
+                image: "images/knife-2.jpg",
+                link: "https://www.amazon.com/dp/B0FG2G9NFX",
+                specs: ["Steel: 7Cr13Mov Steel", "Overall Length: 3.7 Inches", "Blade Thickness: 0.24 Inches", "Weight: 2.4 oz", "Sheath: Kydex Case"]
+            },
+            'knife-3': {
+                title: "Small Fixed Blade",
+                image: "images/knife-3.jpg",
+                link: "https://www.amazon.com/dp/B0BN1423GV",
+                specs: ["Steel: 7Cr13Mov Steel", "Handle: Ergonomic G10", "Overall Length: 6.9 Inches", "Blade Thickness: 0.2 Inches", "Sheath: Leather"]
+            },
+            'knife-4': {
+                title: "Deep Woods Hunter",
+                image: "images/knife-4.jpg",
+                link: "https://www.amazon.com/dp/B09N6Y7MLY?th=1",
+                specs: ["Handle: Ergonomic G10", "Overall Length: 10 Inches", "Blade Type: Kukri", "Structure: Full Tang", "Sheath: Kydex Case"]
+            },
+            'knife-5': {
+                title: "Combat Survival Pro",
+                image: "images/knife-5.jpg",
+                link: "https://www.amazon.com/dp/B0B85YHPSH",
+                specs: ["Features: Built-in Knuckles", "Overall Length: 8.4 Inches", "Blade Thickness: 0.19 Inches", "Weight: 8.5 oz", "Sheath: Kydex Case"]
+            },
+            'knife-6': {
+                title: "Field Scalpel",
+                image: "images/knife-6.jpg",
+                link: "https://www.amazon.com/dp/B0D93QKM4H",
+                specs: ["Steel: 7Cr13MoV", "Handle: Orange G10", "Overall Length: 7.9 Inches", "Blade Length: 3.2 Inches", "Sheath: Kydex Case"]
+            }
+        };
+
+        // 自动年份
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // 详情弹窗
+        function openModal(id) {
+            const data = productData[id];
+            if (!data) return;
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalAmazonLink').href = data.link;
+            for (let i = 1; i <= 5; i++) {
+                const specElement = document.getElementById('spec' + i);
+                const rowElement = document.getElementById('s' + i + '_row');
+                if (data.specs[i-1]) {
+                    specElement.innerText = data.specs[i-1];
+                    rowElement.style.display = 'flex';
+                } else {
+                    rowElement.style.display = 'none';
+                }
+            }
+            document.getElementById('productModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact 弹窗
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 点击背景关闭
+        window.onclick = function(event) {
+            const pModal = document.getElementById('productModal');
+            const cModal = document.getElementById('contactModal');
+            if (event.target == pModal) closeModal();
+            if (event.target == cModal) closeContactModal();
+        }
+    </script>
+</body>
+</html>
